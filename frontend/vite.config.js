@@ -6,13 +6,13 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://holi-event.onrender.com/',
+        target: 'https://holi-event.onrender.com',
+        changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
       },
     },
   },
 
   plugins: [react()],
 });
-
-
