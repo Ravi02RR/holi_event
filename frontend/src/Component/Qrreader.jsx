@@ -47,9 +47,7 @@ const Qrreader = () => {
             const response = await axios.post('/api/checkin/add-user', { regNo: scanResult });
             if (response.status === 201) {
                 toast.success(response.data.message || 'User checked in successfully');
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 10000);
+
             }
         } catch (error) {
             console.error('Error checking in user:', error);
