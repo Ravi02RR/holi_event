@@ -3,14 +3,16 @@ import react from '@vitejs/plugin-react-swc';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
   server: {
     proxy: {
       '/api': {
-        target: 'https://holi-event.onrender.com/', 
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  }
+        target: 'https://holi-event.onrender.com/',
+        secure: false,
+      },
+    },
+  },
+
+  plugins: [react()],
 });
+
+
